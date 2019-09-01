@@ -8,15 +8,19 @@
 
         <div class="btn-group">
             <div class="row">
-                <label for="serverName">Server Name</label>
-                <input type="text" 
-                class="form-control" 
-                (input)="onUpdateServerName($event)"
-                id="serverName">
+                <label for="serverName">Server Name - Method</label>
+                <input type="text" class="form-control" 
+                    (input)="onUpdateServerName($event)" id="serverName">
             </div>
             <div class="row">
-            <button [disabled]="!allowNewServer" type="button" class="btn btn-info btn-lg" id="createServer"
-                (click)="onCreateServer()">Add Server</button>
+                <label for="serverName">Server Name - 2 way binding</label>
+                <input type="text" class="form-control" 
+                    [(ngModel)]="serverName">
+            </div>
+            <div class="row">
+                <button [disabled]="!allowNewServer" type="button" 
+                    class="btn btn-info btn-lg" id="createServer"
+                    (click)="onCreateServer()">Add Server</button>
             </div>
         </div>
         <!-- <p [innerText]="allowNewServer"></p> -->
