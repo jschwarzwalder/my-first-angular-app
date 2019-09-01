@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'app-unique-html-name',
     templateUrl: './server.component.html'
 })
-export class serverComponent {
+export class ServerComponent {
 
 }
