@@ -20,17 +20,28 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <div class="col-sm-3 center">
       <div class="btn-group">
-        <button [disabled]="!allowNewServer" type="button" class="btn btn-info btn-lg">Add Server</button>
-      </div>
+        <button [disabled]="!allowNewServer" 
+        type="button" class="btn btn-info btn-lg"
+        (click)="onCreateServer()">Add Server</button>
+        </div>
+        <!-- <p [innerText]="allowNewServer"></p> -->
+        <p [innerText]="serverCreationStatus"></p>
+        
     </div>
   </div>
   `,
   // styleUrls: ['./servers.component.css']
+  styles: [`
+    p {
+      color: white;
+    }
+  `]
   
 })
 export class ServersComponent implements OnInit {
 
   allowNewServer = false;
+  serverCreationStatus = 'No server was created!';
 
   constructor() { 
     setTimeout(() => {
@@ -40,5 +51,11 @@ export class ServersComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onCreateServer(){
+    this.serverCreationStatus = 'Server was created!';
+  }
+
+
 
 }
