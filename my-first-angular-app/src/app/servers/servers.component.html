@@ -1,1 +1,27 @@
-<p>servers works!</p>
+<div class="row">
+
+    <div class="col-sm-9">
+        <app-server></app-server>
+        <app-server></app-server>
+    </div>
+    <div class="col-sm-3 center">
+
+        <div class="btn-group">
+            <div class="row">
+                <label for="serverName">Server Name</label>
+                <input type="text" 
+                class="form-control" 
+                (input)="onUpdateServerName($event)"
+                id="serverName">
+            </div>
+            <div class="row">
+            <button [disabled]="!allowNewServer" type="button" class="btn btn-info btn-lg" id="createServer"
+                (click)="onCreateServer()">Add Server</button>
+            </div>
+        </div>
+        <!-- <p [innerText]="allowNewServer"></p> -->
+        <p><b>Create Server:</b> {{serverName}}</p>
+        <p [innerText]="serverCreationStatus"></p>
+
+    </div>
+</div>

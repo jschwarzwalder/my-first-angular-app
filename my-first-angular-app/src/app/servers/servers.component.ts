@@ -4,46 +4,29 @@ import { Component, OnInit } from '@angular/core';
 
   selector: 'app-servers',
   // use  <app-servers></app-servers> in html
-  
+
   // selector: '.app-servers', <-- Selecting by class
   // use <div class="app-servers"></div> in html
 
   // selector: '[app-servers]', <-- Selecting by attribute
   // use <div app-servers></div> in html
-  
-  template: `
-  <div class="row">
-    
-    <div class="col-sm-9">
-      <app-server></app-server>
-      <app-server></app-server>
-    </div>
-    <div class="col-sm-3 center">
-      <div class="btn-group">
-        <button [disabled]="!allowNewServer" 
-        type="button" class="btn btn-info btn-lg"
-        (click)="onCreateServer()">Add Server</button>
-        </div>
-        <!-- <p [innerText]="allowNewServer"></p> -->
-        <p [innerText]="serverCreationStatus"></p>
-        
-    </div>
-  </div>
-  `,
+
+  templateUrl: './servers.component.html',
   // styleUrls: ['./servers.component.css']
   styles: [`
-    p {
+    p, label {
       color: white;
     }
   `]
-  
+
 })
 export class ServersComponent implements OnInit {
 
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
+  serverName = '';
 
-  constructor() { 
+  constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000)
@@ -52,10 +35,13 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreateServer(){
+  onCreateServer() {
     this.serverCreationStatus = 'Server was created!';
   }
 
-
+  onUpdateServerName(event: Event) {
+    //console.log(event);
+    this.serverName =(<HTMLInputElement>event.target).value;
+  }
 
 }
