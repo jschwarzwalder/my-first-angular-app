@@ -3,16 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
 
   selector: 'app-servers',
-  // use  <app-servers></app-servers> in html
-
-  // selector: '.app-servers', <-- Selecting by class
-  // use <div class="app-servers"></div> in html
-
-  // selector: '[app-servers]', <-- Selecting by attribute
-  // use <div app-servers></div> in html
 
   templateUrl: './servers.component.html',
-  // styleUrls: ['./servers.component.css']
   styles: [`
     p, label {
       color: white;
@@ -40,10 +32,5 @@ export class ServersComponent implements OnInit {
     this.serverCreationStatus = 'Server ' + this.serverName + ' was created!';
     this.serverCreated = true;
   }
-
-  /* onUpdateServerName(event: Event) {
-    //console.log(event);
-    this.serverName =(<HTMLInputElement>event.target).value;
-  } */
 
 }
